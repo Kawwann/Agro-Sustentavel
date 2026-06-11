@@ -1,1 +1,110 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+/* Fundo animado */
+body {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #a8e6a2, #2b6d3c);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #fff;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+/* Main sections */
+main {
+    flex: 1;
+    padding: 2rem;
+}
+
+.intro p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Benefits */
+.benefits {
+    margin-bottom: 2rem;
+}
+
+.benefits h2 {
+    margin-bottom: 1rem;
+}
+
+.benefits ul {
+    list-style: none;
+}
+
+.benefits li {
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+}
+
+/* Botões */
+.btn {
+    padding: 0.8rem 1.5rem;
+    margin-right: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(to right, #8b5a2b, #556b2f);
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+/* Fundo animado de árvores */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: url('https://i.imgur.com/o2XUM5R.png') repeat-x; /* substitua por sua imagem de árvore animada */
+    animation: moveTrees 60s linear infinite;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+main, header, footer {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes moveTrees {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
