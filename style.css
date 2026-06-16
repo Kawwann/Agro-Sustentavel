@@ -1,1 +1,257 @@
 
+/* Configurações Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fredoka', sans-serif; /* Fonte arredondada */
+}
+
+html {
+    scroll-behavior: smooth; /* Rolagem suave ao clicar nos botões */
+}
+
+body {
+    color: #2c4c38; /* Verde escuro */
+    min-height: 150vh; /* Altura extra para permitir o scroll e ver as animações */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+    padding-bottom: 100px;
+}
+
+/* Imagem de Fundo Desfocada */
+.bg-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1920');
+    background-size: cover;
+    background-position: center;
+    filter: blur(6px); /* Desfocado suave */
+    z-index: -2;
+    transform: scale(1.05);
+    transition: filter 0.3s ease;
+}
+
+/* Barra de Ferramentas (Brilho e Acessibilidade) */
+.accessibility-bar {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    margin-top: 15px;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+#brightness {
+    cursor: pointer;
+    accent-color: #4caf50;
+}
+
+/* Botão de Acessibilidade da Barra */
+#accessibility-btn {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    padding: 6px 15px;
+    border: 2px solid #2e7d32;
+    background: transparent;
+    color: #2e7d32;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#accessibility-btn:hover {
+    background: #2e7d32;
+    color: #fff;
+}
+
+/* Cabeçalho */
+header {
+    text-align: center;
+    margin-top: 25px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    width: 600px;
+}
+
+header h1 {
+    color: #1e3525;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+/* Botões com Degradê Verde para Marrom (Terra) */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.nav-btn {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    color: #ffffff;
+    /* Degradê bem fraco imitando terra vegetada */
+    background: linear-gradient(135deg, #558b2f, #6d4c41); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+/* Efeito Hover nos Botões (Vira tons de Verde) */
+.nav-btn:hover {
+    background: linear-gradient(135deg, #2e7d32, #81c784);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
+}
+
+/* Container do Conteúdo Geral para aplicar o Brilho */
+#main-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: filter 0.1s ease;
+}
+
+main {
+    margin-top: 40px;
+    max-width: 90%;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px; /* Espaço entre as páginas/seções */
+}
+
+/* Estilo das Seções */
+.content-section {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 35px;
+    border-radius: 25px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 2px solid #a5d6a7;
+}
+
+.content-section h2 {
+    color: #2e7d32;
+    margin-bottom: 15px;
+    font-size: 1.7rem;
+}
+
+.content-section p, .content-section li {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+ul {
+    list-style-position: inside;
+    padding-left: 10px;
+}
+
+/* Efeito Hover nos Textos e Palavras destacados (Tons de Verde) */
+.highlight {
+    font-weight: 600;
+    color: #795548; /* Cor terrosa padrão */
+    cursor: pointer;
+    padding: 0 2px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.highlight:hover {
+    color: #1b5e20; /* Tom de verde escuro */
+    background-color: #c8e6c9; /* Fundo verde claro */
+}
+
+/* ==========================================================================
+   CLASSES DE ANIMAÇÃO AO ROLAR (FADE IN GRADUAL)
+   ========================================================================== */
+.hidden-on-scroll {
+    opacity: 0;
+    transform: translateY(40px); /* Começa um pouco abaixo */
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Quando visível, ganha esta classe via JS */
+.visible-on-scroll {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   MODO ACESSIBILIDADE (Cores nítidas, alto contraste e fontes maiores)
+   ========================================================================== */
+body.accessible-mode {
+    color: #000000; /* Texto puramente preto */
+}
+
+body.accessible-mode .bg-blur {
+    filter: blur(0px) brightness(0.4); /* Remove o desfoque para não tontear e escurece o fundo */
+}
+
+body.accessible-mode .content-section, 
+body.accessible-mode header,
+body.accessible-mode .accessibility-bar {
+    background: #ffffff; /* Fundo branco sólido (sem transparência) */
+    border: 3px solid #000000; /* Bordas pretas bem nítidas */
+    box-shadow: none;
+}
+
+body.accessible-mode .content-section h2 {
+    color: #005000; /* Verde de altíssimo contraste */
+    font-weight: 700;
+}
+
+body.accessible-mode .nav-btn {
+    background: #005000; /* Sem degradê, cor sólida forte */
+    color: #ffffff;
+    border: 2px solid #000000;
+    font-size: 1.2rem;
+}
+
+body.accessible-mode .nav-btn:hover {
+    background: #00c000;
+    color: #000000;
+}
+
+body.accessible-mode .highlight {
+    color: #005000;
+    text-decoration: underline; /* Facilita a identificação */
+    font-size: 1.2rem;
+}
+
+body.accessible-mode .highlight:hover {
+    background-color: #005000;
+    color: #ffffff;
+}
+
+body.accessible-mode p, 
+body.accessible-mode li {
+    font-size: 1.3rem; /* Fonte maior para leitura facilitada */
+}
