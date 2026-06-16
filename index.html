@@ -1,1 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Sustentável</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <div class="bg-blur" id="bgBlur"></div>
+
+    <div class="accessibility-bar hidden-on-scroll">
+        <div class="control-group">
+            <label for="brightness">Brilho:</label>
+            <input type="range" id="brightness" min="0.3" max="1.5" step="0.1" value="1">
+        </div>
+        <button id="accessibility-btn" onclick="toggleAccessibility()">Acessibilidade (Alto Contraste)</button>
+    </div>
+
+    <header class="hidden-on-scroll">
+        <h1>Agro: O Motor do Nosso Futuro</h1>
+        <nav>
+            <button class="nav-btn" onclick="scrollToSection('importancia')">Importância do Agro</button>
+            <button class="nav-btn" onclick="scrollToSection('como-ajudar')">Como Ajudar</button>
+        </nav>
+    </header>
+
+    <div id="main-content">
+        <main>
+            <section id="importancia" class="content-section hidden-on-scroll">
+                <h2>O que o Agro faz por nós?</h2>
+                <p>O <span class="highlight">agronegócio</span> vai muito além do campo. Ele é o principal responsável por produzir o alimento que chega à sua mesa todos os dias, desde o café da manhã até o jantar. Além da alimentação, o agro gera milhões de empregos, impulsiona a economia do país e fornece matéria-prima para roupas, combustíveis renováveis e medicamentos.</p>
+                <p>No modo geral, ele garante a <span class="highlight">segurança alimentar</span> do planeta e desenvolve tecnologias inovadoras para produzir mais utilizando menos recursos naturais.</p>
+            </section>
+
+            <section id="como-ajudar" class="content-section hidden-on-scroll">
+                <h2>Fortalecendo o Agro Sustentável</h2>
+                <p>Tornar o agro mais forte e sustentável é um papel de todos nós. As pessoas podem ajudar de várias formas no dia a dia:</p>
+                <ul>
+                    <li>Consumindo produtos de <span class="highlight">produtores locais</span> e da agricultura familiar.</li>
+                    <li>Evitando o <span class="highlight">desperdício de alimentos</span> em casa.</li>
+                    <li>Dando preferência a marcas que possuem selos de <span class="highlight">certificação sustentável</span>.</li>
+                    <li>Apoiando o uso de tecnologias verdes, como a agricultura de precisão e os bioinsumos.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
