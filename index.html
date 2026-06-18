@@ -4,52 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agro Sustentável</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <div class="bg-blur" id="bgBlur"></div>
+<div class="bg-blur" id="bgBlur"></div>
 
-    <div class="accessibility-bar hidden-on-scroll">
-        <div class="control-group">
-            <label for="brightness">Brilho:</label>
-            <input type="range" id="brightness" min="0.3" max="1.5" step="0.1" value="1">
-        </div>
-        <button id="accessibility-btn" onclick="toggleAccessibility()">Acessibilidade (Alto Contraste)</button>
+<div class="accessibility-bar hidden-on-scroll">
+    <div class="control-group">
+        <label>Brilho:</label>
+        <input type="range" id="brightness" min="0.5" max="1.5" step="0.1" value="1">
     </div>
 
-    <header class="hidden-on-scroll">
-        <h1>Agro: O Motor do Nosso Futuro</h1>
-        <nav>
-            <button class="nav-btn" onclick="scrollToSection('importancia')">Importância do Agro</button>
-            <button class="nav-btn" onclick="scrollToSection('como-ajudar')">Como Ajudar</button>
-        </nav>
-    </header>
+    <button onclick="toggleAccessibility()">Alto Contraste</button>
+    <button onclick="alterarFonte(-1)">A-</button>
+    <button onclick="alterarFonte(1)">A+</button>
+</div>
 
-    <div id="main-content">
-        <main>
-            <section id="importancia" class="content-section hidden-on-scroll">
-                <h2>O que o Agro faz por nós?</h2>
-                <p>O <span class="highlight">agronegócio</span> vai muito além do campo. Ele é o principal responsável por produzir o alimento que chega à sua mesa todos os dias, desde o café da manhã até o jantar. Além da alimentação, o agro gera milhões de empregos, impulsiona a economia do país e fornece matéria-prima para roupas, combustíveis renováveis e medicamentos.</p>
-                <p>No modo geral, ele garante a <span class="highlight">segurança alimentar</span> do planeta e desenvolve tecnologias inovadoras para produzir mais utilizando menos recursos naturais.</p>
-            </section>
+<header class="hidden-on-scroll">
+    <h1>Agro: O Motor do Nosso Futuro</h1>
 
-            <section id="como-ajudar" class="content-section hidden-on-scroll">
-                <h2>Fortalecendo o Agro Sustentável</h2>
-                <p>Tornar o agro mais forte e sustentável é um papel de todos nós. As pessoas podem ajudar de várias formas no dia a dia:</p>
-                <ul>
-                    <li>Consumindo produtos de <span class="highlight">produtores locais</span> e da agricultura familiar.</li>
-                    <li>Evitando o <span class="highlight">desperdício de alimentos</span> em casa.</li>
-                    <li>Dando preferência a marcas que possuem selos de <span class="highlight">certificação sustentável</span>.</li>
-                    <li>Apoiando o uso de tecnologias verdes, como a agricultura de precisão e os bioinsumos.</li>
-                </ul>
-            </section>
-        </main>
-    </div>
+    <nav>
+        <button class="nav-btn" onclick="scrollToSection('importancia')">Importância</button>
+        <button class="nav-btn" onclick="scrollToSection('futuro')">Futuro</button>
+        <button class="nav-btn" onclick="scrollToSection('como-ajudar')">Como Ajudar</button>
+        <button class="nav-btn" onclick="scrollToSection('quiz')">Quiz</button>
+    </nav>
+</header>
 
-    <script src="script.js"></script>
+<main>
+
+    <section id="importancia" class="content-section hidden-on-scroll">
+        <h2>O que o Agro faz por nós?</h2>
+
+        <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30" />
+
+        <p>
+            O agronegócio é essencial para a produção de alimentos, geração de empregos e desenvolvimento econômico.
+            Ele também fornece matérias-primas para roupas, biocombustíveis e medicamentos.
+        </p>
+    </section>
+
+    <section id="futuro" class="content-section hidden-on-scroll">
+        <h2>O futuro do Agro Sustentável</h2>
+
+        <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399" />
+
+        <p>
+            O futuro depende da sustentabilidade: uso consciente da água, energia limpa, agricultura de precisão e menos impacto ambiental.
+        </p>
+
+        <p>
+            Com tecnologia e consciência ambiental, podemos produzir mais sem destruir o planeta.
+        </p>
+    </section>
+
+    <section id="como-ajudar" class="content-section hidden-on-scroll">
+        <h2>Como podemos ajudar?</h2>
+
+        <img src="https://images.unsplash.com/photo-1523741543316-beb7fc7023d8" />
+
+        <ul>
+            <li>Consumir produtos locais</li>
+            <li>Evitar desperdício de alimentos</li>
+            <li>Apoiar agricultura sustentável</li>
+            <li>Valorizar produtores rurais</li>
+        </ul>
+    </section>
+
+    <section id="quiz" class="content-section hidden-on-scroll">
+        <h2>Quiz: Agro Sustentável</h2>
+
+        <form id="quizForm">
+
+            <!-- 15 perguntas -->
+            <div class="quiz-box">1. O agro sustentável busca equilíbrio ambiental?</div>
+            <div class="quiz-box">2. O agro gera empregos?</div>
+            <div class="quiz-box">3. Agricultura de precisão usa tecnologia?</div>
+            <div class="quiz-box">4. Desperdício de alimentos é um problema?</div>
+            <div class="quiz-box">5. O solo precisa de cuidado?</div>
+            <div class="quiz-box">6. Drones ajudam na agricultura?</div>
+            <div class="quiz-box">7. Energia limpa ajuda o campo?</div>
+            <div class="quiz-box">8. Monocultura pode prejudicar o solo?</div>
+            <div class="quiz-box">9. O agro produz alimentos?</div>
+            <div class="quiz-box">10. Irrigação eficiente economiza água?</div>
+            <div class="quiz-box">11. Biodiversidade é importante?</div>
+            <div class="quiz-box">12. Compostagem ajuda o meio ambiente?</div>
+            <div class="quiz-box">13. O agro impacta a economia?</div>
+            <div class="quiz-box">14. Tecnologia pode reduzir impactos ambientais?</div>
+            <div class="quiz-box">15. O futuro depende do agro sustentável?</div>
+
+            <button type="submit">Enviar respostas</button>
+        </form>
+    </section>
+
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>
