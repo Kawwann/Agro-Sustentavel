@@ -1,50 +1,56 @@
-
-/* Configurações Gerais */
+/* ================================
+   CONFIGURAÇÕES GERAIS
+================================ */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Fredoka', sans-serif; /* Fonte arredondada */
+    font-family: 'Fredoka', sans-serif;
 }
 
 html {
-    scroll-behavior: smooth; /* Rolagem suave ao clicar nos botões */
+    scroll-behavior: smooth;
 }
 
 body {
-    color: #2c4c38; /* Verde escuro */
-    min-height: 150vh; /* Altura extra para permitir o scroll e ver as animações */
+    color: #2c4c38;
+    min-height: 150vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
     overflow-x: hidden;
     padding-bottom: 100px;
+
+    /* IMPORTANTE: controle de brilho via JS */
+    transition: filter 0.3s ease, font-size 0.2s ease;
 }
 
-/* Imagem de Fundo Desfocada */
+/* ================================
+   FUNDO
+================================ */
 .bg-blur {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1920');
     background-size: cover;
     background-position: center;
-    filter: blur(6px); /* Desfocado suave */
+    filter: blur(6px);
     z-index: -2;
     transform: scale(1.05);
-    transition: filter 0.3s ease;
+    transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
-/* Barra de Ferramentas (Brilho e Acessibilidade) */
+/* ================================
+   BARRA DE ACESSIBILIDADE
+================================ */
 .accessibility-bar {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+
     background: rgba(255, 255, 255, 0.9);
     padding: 10px 20px;
     margin-top: 15px;
@@ -65,11 +71,14 @@ body {
     accent-color: #4caf50;
 }
 
-/* Botão de Acessibilidade da Barra */
-#accessibility-btn {
+/* ================================
+   BOTÕES
+================================ */
+#accessibility-btn,
+.accessibility-bar button {
     font-family: 'Fredoka', sans-serif;
     font-weight: 600;
-    padding: 6px 15px;
+    padding: 6px 14px;
     border: 2px solid #2e7d32;
     background: transparent;
     color: #2e7d32;
@@ -78,12 +87,15 @@ body {
     transition: all 0.2s ease;
 }
 
-#accessibility-btn:hover {
+#accessibility-btn:hover,
+.accessibility-bar button:hover {
     background: #2e7d32;
     color: #fff;
 }
 
-/* Cabeçalho */
+/* ================================
+   CABEÇALHO
+================================ */
 header {
     text-align: center;
     margin-top: 25px;
@@ -101,42 +113,43 @@ header h1 {
     font-size: 2rem;
 }
 
-/* Botões com Degradê Verde para Marrom (Terra) */
+/* ================================
+   NAVEGAÇÃO
+================================ */
 nav {
     display: flex;
     justify-content: center;
     gap: 15px;
+    flex-wrap: wrap;
 }
 
 .nav-btn {
-    font-family: 'Fredoka', sans-serif;
     font-size: 1rem;
     font-weight: 600;
-    padding: 12px 24px;
+    padding: 12px 22px;
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    color: #ffffff;
-    /* Degradê bem fraco imitando terra vegetada */
-    background: linear-gradient(135deg, #558b2f, #6d4c41); 
+    color: #fff;
+    background: linear-gradient(135deg, #558b2f, #6d4c41);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
 }
 
-/* Efeito Hover nos Botões (Vira tons de Verde) */
 .nav-btn:hover {
     background: linear-gradient(135deg, #2e7d32, #81c784);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
 }
 
-/* Container do Conteúdo Geral para aplicar o Brilho */
+/* ================================
+   CONTEÚDO
+================================ */
 #main-content {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: filter 0.1s ease;
+    transition: filter 0.2s ease;
 }
 
 main {
@@ -145,10 +158,12 @@ main {
     width: 600px;
     display: flex;
     flex-direction: column;
-    gap: 50px; /* Espaço entre as páginas/seções */
+    gap: 50px;
 }
 
-/* Estilo das Seções */
+/* ================================
+   SEÇÕES
+================================ */
 .content-section {
     background: rgba(255, 255, 255, 0.9);
     padding: 35px;
@@ -163,95 +178,110 @@ main {
     font-size: 1.7rem;
 }
 
-.content-section p, .content-section li {
+.content-section p,
+.content-section li {
     font-size: 1.15rem;
     line-height: 1.6;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
+/* ================================
+   IMAGENS
+================================ */
+.content-section img {
+    width: 100%;
+    border-radius: 15px;
+    margin: 15px 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* ================================
+   LISTAS
+================================ */
 ul {
     list-style-position: inside;
     padding-left: 10px;
 }
 
-/* Efeito Hover nos Textos e Palavras destacados (Tons de Verde) */
+/* ================================
+   HIGHLIGHT
+================================ */
 .highlight {
     font-weight: 600;
-    color: #795548; /* Cor terrosa padrão */
+    color: #795548;
     cursor: pointer;
-    padding: 0 2px;
-    border-radius: 4px;
     transition: all 0.3s ease;
 }
 
 .highlight:hover {
-    color: #1b5e20; /* Tom de verde escuro */
-    background-color: #c8e6c9; /* Fundo verde claro */
+    color: #1b5e20;
+    background: #c8e6c9;
 }
 
-/* ==========================================================================
-   CLASSES DE ANIMAÇÃO AO ROLAR (FADE IN GRADUAL)
-   ========================================================================== */
+/* ================================
+   QUIZ
+================================ */
+.quiz-box {
+    background: #fff;
+    padding: 12px;
+    border-radius: 10px;
+    margin: 10px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+/* ================================
+   ANIMAÇÃO SCROLL
+================================ */
 .hidden-on-scroll {
     opacity: 0;
-    transform: translateY(40px); /* Começa um pouco abaixo */
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transform: translateY(40px);
+    transition: 0.8s ease;
 }
 
-/* Quando visível, ganha esta classe via JS */
 .visible-on-scroll {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* ==========================================================================
-   MODO ACESSIBILIDADE (Cores nítidas, alto contraste e fontes maiores)
-   ========================================================================== */
+/* ================================
+   MODO ACESSÍVEL
+================================ */
 body.accessible-mode {
-    color: #000000; /* Texto puramente preto */
+    color: #000;
+    background: #fff;
 }
 
 body.accessible-mode .bg-blur {
-    filter: blur(0px) brightness(0.4); /* Remove o desfoque para não tontear e escurece o fundo */
+    filter: brightness(0.3) blur(0px);
 }
 
-body.accessible-mode .content-section, 
+body.accessible-mode .content-section,
 body.accessible-mode header,
 body.accessible-mode .accessibility-bar {
-    background: #ffffff; /* Fundo branco sólido (sem transparência) */
-    border: 3px solid #000000; /* Bordas pretas bem nítidas */
+    background: #fff;
+    border: 3px solid #000;
     box-shadow: none;
 }
 
-body.accessible-mode .content-section h2 {
-    color: #005000; /* Verde de altíssimo contraste */
-    font-weight: 700;
-}
-
 body.accessible-mode .nav-btn {
-    background: #005000; /* Sem degradê, cor sólida forte */
-    color: #ffffff;
-    border: 2px solid #000000;
-    font-size: 1.2rem;
+    background: #005000;
+    border: 2px solid #000;
 }
 
-body.accessible-mode .nav-btn:hover {
-    background: #00c000;
-    color: #000000;
-}
-
-body.accessible-mode .highlight {
-    color: #005000;
-    text-decoration: underline; /* Facilita a identificação */
-    font-size: 1.2rem;
-}
-
-body.accessible-mode .highlight:hover {
-    background-color: #005000;
-    color: #ffffff;
-}
-
-body.accessible-mode p, 
+body.accessible-mode p,
 body.accessible-mode li {
-    font-size: 1.3rem; /* Fonte maior para leitura facilitada */
+    font-size: 1.25rem;
+}
+
+/* ================================
+   RESPONSIVO
+================================ */
+@media (max-width: 600px) {
+    header, main {
+        width: 95%;
+    }
+
+    .nav-btn {
+        width: 100%;
+    }
 }
